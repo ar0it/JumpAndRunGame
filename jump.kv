@@ -1,0 +1,71 @@
+#:kivy 2.1.0
+
+<Wall>:
+    size: 50, 50
+    canvas:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+<Player>:
+    size: 50, 100
+    canvas:
+        Ellipse:
+            pos: self.pos
+            size: self.size
+
+<Floor>:
+    size: 200, 25
+    canvas:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+<Goal>:
+    size : 20, 200
+    canvas:
+        Rectangle:
+            pos: self.pos
+            size:self.size
+
+<JumpGame>:
+    player: player_character
+    floor1: floor_left
+    floor2: floor_right
+    goal: finish_line
+    wall: wall
+
+
+
+    Label:
+        font_size: 70
+        center_x: root.width / 4
+        top: root.top - 50
+        text: str(root.player.score)
+
+    Player:
+        id: player_character
+        center: self.parent.center
+
+    Wall:
+        id: wall
+        x: root.width + 500
+        center_y: root.center_y
+
+    Floor:
+        id: floor_left
+        x: root.x
+        center_y: root.center_y
+
+    Floor:
+        id: floor_right
+        x: root.width - self.width
+        center_y: root.center_y
+
+    Goal:
+        id: finish_line
+        x: root.width + 10000
+        center_y: root.center_y
+
+
+
+
